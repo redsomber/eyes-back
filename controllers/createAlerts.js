@@ -10,7 +10,7 @@ export const createAlertCheck = () => {
   return (req, res, next) => {
     const now = Date.now();
     const elapsedTime = now - lastAlertCheckTime;
-    const minTimeBetweenAlertChecks = 3 * 1000; // Time in milliseconds
+    const minTimeBetweenAlertChecks = 300 * 1000; // Time in milliseconds
 
     // Call alertCheck only if more than one minute has passed since the last call
     if (elapsedTime > minTimeBetweenAlertChecks) {
