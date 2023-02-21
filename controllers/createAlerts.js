@@ -39,7 +39,7 @@ const increacePercent = async (req) => {
 
       const volumePercent = percentVolumeCalc(dataTicker, ticker);
 
-      if (volumePercent > 300) {
+      if (volumePercent > 300 && result.toFixed(1) != 0) {
         alertVolume.push({
           ...ticker,
           increace: result.toFixed(1),
@@ -47,11 +47,11 @@ const increacePercent = async (req) => {
         });
       }
 
-      if (dataTicker && result > 3) {
+      if (dataTicker && result > 3 && result != Infinity) {
         newAlerts.push({
           ...ticker,
           increace: result.toFixed(0),
-          incVolume: volumePercent,
+          incVolume: volumePercent.toFixed(0),
         });
       }
     });
