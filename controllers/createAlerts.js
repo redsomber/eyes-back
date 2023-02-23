@@ -50,7 +50,7 @@ const increacePercent = async (req) => {
       if (dataTicker && result > 3 && result != Infinity) {
         newAlerts.push({
           ...ticker,
-          increace: result.toFixed(0),
+          increace: result.toFixed(1),
           incVolume: volumePercent.toFixed(0),
         });
       }
