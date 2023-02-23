@@ -18,20 +18,16 @@ mongoose
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: '*'
-}))
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Credentials", "true");
-  next();
-});
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 const httpServer = createServer(app);
 const io = new Server(httpServer, { cors: { origin: "*" } });
 
 // Set up socket connection
-setupSocket(io)
+setupSocket(io);
 
 app.use(router);
 
