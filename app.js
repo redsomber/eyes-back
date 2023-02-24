@@ -20,11 +20,11 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "*",
+    origin: "https://dojoproject-6653a.web.app/",
   })
 );
 const httpServer = createServer(app);
-const io = new Server(httpServer, { cors: { origin: "*" } });
+const io = new Server(httpServer, { cors: { origin: "https://dojoproject-6653a.web.app/" } });
 
 // Set up socket connection
 setupSocket(io);
